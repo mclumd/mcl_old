@@ -1,0 +1,4 @@
+o localhost 5150
+initialize(meta_aqua,0)
+configure(meta_aqua,MA,MA)
+declareObservableObjType(meta_aqua,bark)

@@ -1,0 +1,11 @@
+Env variables to be set:
+
+export LD_LIBRARY_PATH=/fs/metacog/group/mcl/mclnew/mcl_current:/fs/metacog/group/mcl/mclnew/mcl_current/lib
+export MCL_CONFIG_PATH=/fs/metacog/group/mcl/mclnew/mcl_current/config
+export MCL=/fs/metacog/group/mcl/mclnew/mcl_current
+export MCL_CORE_PATH=/fs/metacog/group/mcl/mclnew/mcl_current
+
+Sensor classes should have prefix sc
+
+
+"bin/mclconfig cpt ont dir" creates a uniform cpt based on the ontology "ont" in the folder MCL_CONFIG_PATH/config/dir

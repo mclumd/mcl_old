@@ -1,0 +1,38 @@
+digraph indications {
+  size="8,10"
+  "provenance:object(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "provenance:self(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "provenance(0.00)" [shape=ellipse,color=purple,fontcolor=purple];
+  "sc:actor(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:object(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:goalscene(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:itemlocation(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:mainresult(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:opponent(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:charge(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:to(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "sc:unspec(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "observable(0.00)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+  "divergence(0.00)" [shape=ellipse,color=purple,fontcolor=purple];
+  "aberration(0.00)" [shape=ellipse,color=purple,fontcolor=purple];
+  "notInSet(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "illegalValue(0.00)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "indication(0.00)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+  "provenance:object(0.00)" -> "provenance(0.00)";
+  "provenance:self(0.00)" -> "provenance(0.00)";
+  "sc:actor(0.00)" -> "observable(0.00)";
+  "sc:object(0.00)" -> "observable(0.00)";
+  "sc:goalscene(0.00)" -> "observable(0.00)";
+  "sc:mainresult(0.00)" -> "observable(0.00)";
+  "sc:opponent(0.00)" -> "observable(0.00)";
+  "sc:charge(0.00)" -> "observable(0.00)";
+  "sc:to(0.00)" -> "observable(0.00)";
+  "sc:itemlocation(0.00)" -> "observable(0.00)";
+  "sc:unspec(0.00)" -> "observable(0.00)";
+  "illegalValue(0.00)" -> "divergence(0.00)";
+  "aberration(0.00)" -> "divergence(0.00)";
+  "notInSet(0.00)" -> "illegalValue(0.00)";
+  "provenance(0.00)" -> "indication(0.00)";
+  "observable(0.00)" -> "indication(0.00)";
+  "divergence(0.00)" -> "indication(0.00)";
+}

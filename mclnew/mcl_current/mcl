@@ -1,0 +1,56 @@
+How this document is organized:
+- '#' indicates the beginning of a new section
+- each command is in single quotes exactly as it would be entered, but with
+actual values replaced by variable names.
+-notes follow the commands they refer to
+
+
+#initialize
+'initialize(hName)'
+note: store hName, it will be used with every command
+
+#configure
+'configure(hName,ontologyName,configName)'
+note: currently, I am using 'MA' as both the ontology and config name.
+
+#sensors - three commands
+'declareObservableSelf(hName, sname, defaultVal)'
+note: store sName so it can be modified or used to create expectations later.
+'setObsPropSelf(hName, sName, prop_sclass, sensorType)'
+note: sets sensor type. sensorType will be "sc_$(name)", so an 'object' 
+sensor would be "sc_object".
+'addObsLegalValSelf(hName, sName, val)'
+note: adds a legal value to the set for sensor sName. Note - only numerical
+values can be accepted by mcl, so all strings must be converted to numbers
+in some consistent way, s.t. there is a 1-1 correspondence.
+
+#expectations - two commands
+'declareEG(hName,key)'
+note - key must be unique for each expectation group. 
+'declareSelfExp(hName,EGKey,sName,expType,param)'
+#note - declares an expectation. EGKey is the group to put it in, sName
+is the associated sensor, param is the associated value, if any - leave blank
+if none is needed. To create an expectation that a sensor will stay within its
+set of legal values, use 'ec_be_legal' as the expType.
+
+#monitor
+'monitor(hName, {sName1,val1,...sNameN,valN})'
+#note - each monitor call should update the values of every sensor that has
+been declared. In my test program, I created a simple sensor class to keep
+track of values. They could also be read directly from appropriate places
+in the Meta-AQUA code. Monitor will return a response object, of the format:
+
+ok([response(type=suggestion,ref=0x********,code=unknown_code_0,action=true,
+abort=true,text="MCL response = (0,responseName,?unknown response?)")])
+note: the only variables in this response are the ref(a hex number) and the
+responseName, which will be something like "evaluateFrame." The reason why so 
+many values are unknown is that We are using modified ontologies with new
+response types not built into mcl. Both 'ref' and 'responseName' should be
+saved for later use.
+
+#feedback - 3 commands
+'suggestionFailed(hName,ref)'
+'suggestionImplemented(hName,ref)'
+'suggestionIgnored(hName,ref)'
+#note - ref is the value with the same name from the response object. It tells
+mcl which suggestion you are referring to.

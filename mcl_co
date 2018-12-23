@@ -1,0 +1,6 @@
+#! /bin/tcsh -f
+#setenv CVSROOT :ext:sprocket.coral-lab.org:/data/share/groups/coral_cvsroot
+setenv CVSROOT :ext:ai.cs.umbc.edu:/data/share/groups/coral_cvsroot
+setenv CVS_RSH ssh
+#cvs checkout mcl-core-gglue
+cvs checkout mcl_2_0

@@ -1,0 +1,29 @@
+set term x11 0 title 'maintenance actions'
+plot [] [0:100] 'mars_case0.out' using 1:18 title 'maok case0', \
+  'mars_case1.out' using 1:18 title 'maok case1', \
+  'mars_case0.out' using 1:19 title 'mafail case0', \
+  'mars_case1.out' using 1:19 title 'mafail case1'
+
+set term x11 1 title 'outstanding goal size'
+plot [] [0:100] 'mars_case0.out' using 1:27 title 'ogs case0', \
+  'mars_case1.out' using 1:27 title 'ogs case1', \
+  'mars_case0.out' using 1:25 title 'gsat case0', \
+  'mars_case1.out' using 1:25 title 'gsat case1'
+
+set term x11 2 title 'action failures'
+plot [] [0:100] 'mars_case0.out' using 1:16 title 'ugpa_fail case0', \
+  'mars_case1.out' using 1:16 title 'ugpa_fail case1', \
+  'mars_case2.out' using 1:16 title 'ugpa_fail case2', \
+  'mars_case0.out' using 1:19 title 'maint_fail case0', \
+  'mars_case1.out' using 1:19 title 'maint_fail case1', \
+  'mars_case2.out' using 1:19 title 'maint_fail case2', \
+  'mars_case0.out' using 1:21 title 'reac_fail case0', \
+  'mars_case1.out' using 1:21 title 'reac_fail case1', \
+  'mars_case2.out' using 1:21 title 'reac_fail case2'
+
+set term x11 3 title 'goalsat'
+plot [] [0:50] 'mars_case0.out' using 1:25 title 'gsat case0', \
+  'mars_case1.out' using 1:25 title 'gsat case1', \
+  'mars_case2.out' using 1:25 title 'gsat case2', \
+  'mars_case1.out' using 1:14 title 'rescue case1', \
+  'mars_case2.out' using 1:14 title 'rescue case2'

@@ -1,0 +1,8 @@
+Shomir's notes on the various UMBC builds.
+
+-Each of the builds contains a "make" directory consisting of files with variables for building on a variety of machines and operating systems. I have created these files for Qubit and Erewhon; if you are using the Qubit cluster, building on only those two machines is supported. (Just SSH over to one of them.)
+
+-Since we don't have root access, I've used the Make.qubit and Make.erehwhon files to redirect libraries and header files written by the UMBC builds to these directories:
+/fs/metacog/group/mcl/lib
+/fs/metacog/group/mcl/include
+Set your environment variables (particularly LD_LIBRARY_PATH) accordingly.

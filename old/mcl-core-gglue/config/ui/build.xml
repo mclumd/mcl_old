@@ -1,0 +1,36 @@
+<project name="stox" default="compile" basedir=".">
+
+    <property file="build.properties"/>
+    <property file="default.properties"/>
+
+    <target name="init">
+        <mkdir dir="${build.dir}" />
+    </target>
+    
+    <target name="compile" depends="init">
+        <javac  srcdir="${src.dir}" 
+                destdir="${build.dir}" 
+                debug="${debug}" 
+                optimize="${optimize}" 
+                deprecation="${deprecation}">
+            <include name="*.java" />
+        </javac>         
+    </target>
+
+    <target name="javadoc" depends="compile" >
+     <javadoc sourcepath="${src.dir}"
+          destdir="${docs.dir}"
+	  packagenames="mcl.config.ui.*" />
+    </target>     
+    
+    <target name="jar" depends="init,compile">
+        <jar jarfile="${build.dir}/${project.name}-${project.version}.jar"
+		     basedir="${build.dir}" />
+    </target>
+
+    <target name="clean" >
+	<delete dir="${build.dir}" />
+	<delete dir="${docs.dir}" />
+    </target>
+
+</project>

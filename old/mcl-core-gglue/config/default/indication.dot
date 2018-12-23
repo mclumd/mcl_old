@@ -1,0 +1,44 @@
+digraph indication {
+  size="8,10"
+  "sensorsCanFail(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "effectorsCanFail(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "intentional(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "parameterized(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "declarative(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "retrainable(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "hlcController(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "htnInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "planInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "actionInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+  "hostProp(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+  "state(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "resource(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "temporal(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "spatial(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "unclassifiedIndication(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+  "divergence(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+  "missed_target(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+  "missed_unchanged(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+  "resourceUnchanged(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+  "moveFailure(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+  "sensorVerifiedBroken(0.50)" [shape=rectangle,style=filled,fillcolor=sienna];
+  "sensorVerifiedWorking(0.50)" [shape=rectangle,style=filled,fillcolor=sienna];
+  "intentional(0.00)" -> "hostProp(0.50)";
+  "effectorsCanFail(0.00)" -> "hostProp(0.50)";
+  "sensorsCanFail(0.00)" -> "hostProp(0.50)";
+  "parameterized(0.00)" -> "hostProp(0.50)";
+  "declarative(0.00)" -> "hostProp(0.50)";
+  "retrainable(0.00)" -> "hostProp(0.50)";
+  "hlcController(0.00)" -> "hostProp(0.50)";
+  "htnInPlay(0.00)" -> "hostProp(0.50)";
+  "planInPlay(0.00)" -> "hostProp(0.50)";
+  "actionInPlay(0.00)" -> "hostProp(0.50)";
+  "state(0.50)" -> "unclassifiedIndication(0.50)";
+  "temporal(0.50)" -> "unclassifiedIndication(0.50)";
+  "missed_target(0.50)" -> "divergence(0.50)";
+  "missed_unchanged(0.50)" -> "missed_target(0.50)";
+  "resource(0.50)" -> "resourceUnchanged(0.50)";
+  "missed_unchanged(0.50)" -> "resourceUnchanged(0.50)";
+  "spatial(0.50)" -> "moveFailure(0.50)";
+  "missed_unchanged(0.50)" -> "moveFailure(0.50)";
+}

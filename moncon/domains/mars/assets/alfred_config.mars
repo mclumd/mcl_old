@@ -1,0 +1,9 @@
+marsSim
+# the following causes MonCon to format replies over the TCP socket
+# in Prolog-friendly fashion.
+set moncon.reply prolog
+agent mars_rover ("brutus")
+agent relay_station ("relay_alpha" 3)
+controller (rover_maintenance_layer rugpa_reactive_layer rover_ugpa) "brutus" ()
+agent dispatch ("dispatcher1")
+controller tcp_dispatch "dispatcher1" ("tcp1c" 1)

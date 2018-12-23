@@ -1,0 +1,34 @@
+digraph responses {
+  size="8,10"
+  "response(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "internalResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "externalResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "actorResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "goalResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "objectResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "frameResponse(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "evaluateGoals(0.00)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "evaluateActor(0.00)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "evaluateFrame(0.00)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "evaluateObject(0.00)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "indication(0.00)" -> "response(0.00)" [style = dotted];
+  "response(0.00)" -> "internalResponse(0.00)";
+  "notInSet(0.00)" -> "internalResponse(0.00)" [style = dotted];
+  "sc:charge(0.00)" -> "internalResponse(0.00)" [style = dotted];
+  "response(0.00)" -> "externalResponse(0.00)";
+  "internalResponse(0.00)" -> "actorResponse(0.00)";
+  "sc:actor(0.00)" -> "actorResponse(0.00)" [style = dotted];
+  "internalResponse(0.00)" -> "goalResponse(0.00)";
+  "sc:goalscene(0.00)" -> "goalResponse(0.00)" [style = dotted];
+  "sc:mainresult(0.00)" -> "goalResponse(0.00)" [style = dotted];
+  "internalResponse(0.00)" -> "objectResponse(0.00)";
+  "sc:object(0.00)" -> "objectResponse(0.00)" [style = dotted];
+  "sc:opponent(0.00)" -> "objectResponse(0.00)" [style = dotted];
+  "internalResponse(0.00)" -> "frameResponse(0.00)";
+  "sc:to(0.00)" -> "frameResponse(0.00)" [style = dotted];
+  "sc:itemlocation(0.00)" -> "frameResponse(0.00)" [style = dotted];
+  "goalResponse(0.00)" -> "evaluateGoals(0.00)";
+  "actorResponse(0.00)" -> "evaluateActor(0.00)";
+  "frameResponse(0.00)" -> "evaluateFrame(0.00)";
+  "objectResponse(0.00)" -> "evaluateObject(0.00)";
+}

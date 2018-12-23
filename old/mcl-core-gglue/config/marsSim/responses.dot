@@ -1,0 +1,34 @@
+digraph responses {
+  size="8,10"
+  "response(0.00)" [shape=ellipse,color=green,fontcolor=green];
+  "internalResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "plantResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "systemResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "runDiagnostic(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "runSensorDiagnostic(0.03)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "runEffectorDiagnostic(0.25)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "resetSensor(0.38)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "resetEffector(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "amendKnowledgeBase(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "amendPredictiveModels(0.50)" [shape=ellipse,color=green,fontcolor=green];
+  "rebuildPredictiveModels(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "tryAgain(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  "response(0.00)" -> "internalResponse(0.50)";
+  "internalResponse(0.50)" -> "plantResponse(0.50)";
+  "internalResponse(0.50)" -> "systemResponse(0.50)";
+  "plantResponse(0.50)" -> "runDiagnostic(0.50)";
+  "runDiagnostic(0.50)" -> "runSensorDiagnostic(0.03)";
+  "sensorVerifiedBroken(0.00)" -> "runSensorDiagnostic(0.03)" [style = dotted];
+  "sensorVerifiedWorking(0.00)" -> "runSensorDiagnostic(0.03)" [style = dotted];
+  "sensorMalfunction(0.05)" -> "runSensorDiagnostic(0.03)" [style = dotted];
+  "runDiagnostic(0.50)" -> "runEffectorDiagnostic(0.25)";
+  "plantResponse(0.50)" -> "resetSensor(0.38)";
+  "sensorVerifiedBroken(0.00)" -> "resetSensor(0.38)" [style = dotted];
+  "sensorVerifiedWorking(0.00)" -> "resetSensor(0.38)" [style = dotted];
+  "plantResponse(0.50)" -> "resetEffector(0.50)";
+  "systemResponse(0.50)" -> "amendKnowledgeBase(0.50)";
+  "amendKnowledgeBase(0.50)" -> "amendPredictiveModels(0.50)";
+  "predictiveModelError(0.50)" -> "amendPredictiveModels(0.50)" [style = dotted];
+  "amendPredictiveModels(0.50)" -> "rebuildPredictiveModels(0.50)";
+  "systemResponse(0.50)" -> "tryAgain(0.50)";
+}

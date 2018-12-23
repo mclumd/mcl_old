@@ -1,0 +1,51 @@
+#include "mcl_multiagent_api.h"
+#include "mclSettings.h"
+
+#include "substrate/domain_configurator.h"
+#include "substrate/agent.h"
+
+#include <unistd.h>
+#include <iostream>
+
+/* BEGIN DOMAIN-SPECIFIC REQUIRED INCLUDES HERE */
+#error "An include for the domain.h file is probably required for mcl_config."
+// #include "mars_domain.h"
+
+using namespace std;
+
+int main(int argc, char **argv) {
+  mclSettings::setSysProperty("suppressConfigErrors",true);
+  // comment the next one out if you want to write the config locally 
+  // (to HOME/.mcl_config)
+  mclSettings::getSysPropertyBool("writeConfigGlobal",true);
+
+  mclSettings::args2SysProperties(argc,argv);
+
+  #error "A domain must be created in main() for configuring."
+  // mars_domain * dom = new mars_domain();
+
+  string dconfig_fn = mclSettings::getSysPropertyString("config",".mc_config");
+  if (!domain_config::configure_domain(dom,dconfig_fn)) {
+    cerr << "Can't configure from '" << dconfig_fn << "'." << endl;
+    exit(-1);
+  }
+
+  for (agent_list::iterator ali = dom->al_start();
+       ali != dom->al_end();
+       ali++) {
+    (*ali)->initialize(); // the agent should tell its controller to initialize
+  }
+
+  for (agent_list::iterator ali = dom->al_start();
+       ali != dom->al_end();
+       ali++) {
+    mcl_sensing* aama = dynamic_cast<mcl_sensing*>(*ali);
+    if (aama) {
+      mclMA::writeInitializedCPTs(aama->mcl_agentspec());
+    }
+  }
+
+  return 0;
+
+}
+

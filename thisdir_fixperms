@@ -1,0 +1,4 @@
+#!/usr/bin/csh
+
+chmod -R a=u *
+chgrp -R active *

@@ -1,0 +1,75 @@
+
+# defines, system commands
+
+CC = g++
+LD = g++
+RM = rm
+LIBEXT = so
+
+# defines, switches and flags
+
+CFLAGS = -g -Wall
+LINKFLAGS = -Wl,-G
+MARSLIBS = -lpthread
+MONCONLIBS = -lmoncon_utils -lmoncon_substrate
+
+# files
+
+DOMDIRS = agents common controllers env scorers
+DOMINCS = $(patsubst %,-I%/include,$(DOMDIRS))
+DOMSRCS = $(foreach d, $(DOMDIRS), $(wildcard $(d)/*.cc))
+DOMOBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(DOMSRCS)))
+
+## MAKE DOMAIN-SPECIFIC FLAG ADDITIONS HERE
+
+%.o:    %.cc
+	$(CC) $(CFLAGS) $(DOMINCS) -c $< -o $@
+
+mars: $(MARSOBJS) mars.o 
+	$(LD) -o mars $(MCL_LIBFILE) $^ $(MARSLIBS)
+
+objects: $(DOMOBJS)
+
+tty: $(MARSOBJS)
+	$(CC) $(CFLAGS) $(MARSINCS) -DTTY_CONTROL -I$(MCL_INC_DIR) -c mars.cc -o tty.o
+	$(LD) -o mars_tty $(MCL_LIBFILE) $(MARSOBJS) $(MARSLIBS) tty.o
+
+rand: $(MARSOBJS)
+	$(CC) $(CFLAGS) $(MARSINCS) -DRAND_CONTROL -I$(MCL_INC_DIR) -c mars.cc -o ranbot.o
+	$(LD) -o mars_rand $(MCL_LIBFILE) $(MARSOBJS) $(MARSLIBS) ranbot.o
+
+ttybot: $(MARSOBJS)
+	$(CC) $(CFLAGS) $(MARSINCS) -DTTYBOT_CONTROL -I$(MCL_INC_DIR) -c mars.cc -o bot.o
+	$(LD) -o mars_bot $(MCL_LIBFILE) $(MARSOBJS) $(MARSLIBS) ttybot.o
+
+sock: $(MARSOBJS)
+	$(CC) $(CFLAGS) $(MARSINCS) -DSOCK_CONTROL -I$(MCL_INC_DIR) -c mars.cc -o sock.o
+	$(LD) -o mars_sock $(MCL_LIBFILE) $(MARSOBJS) $(MARSLIBS) sock.o
+
+bot: $(MARSOBJS)
+	$(CC) $(CFLAGS) $(MARSINCS) -DTL_CONTROL -I$(MCL_INC_DIR) -c mars.cc -o bot.o
+	$(LD) -o mars_bot $(MCL_LIBFILE) $(MARSOBJS) $(MARSLIBS) bot.o
+
+all: rand tty bot sock
+
+clean:
+	-$(RM) *~
+	-$(RM) *.o
+	-$(RM) mars
+	-$(RM) mars_*
+	-$(RM) common/include/*~
+	-$(RM) control/include/*~
+	-$(RM) simulation/include/*~
+	-$(RM) domain/include/*~
+	-$(RM) mclAPI/include/*~
+	-$(RM) common/*~
+	-$(RM) control/*~
+	-$(RM) simulation/*~
+	-$(RM) domain/*~
+	-$(RM) mclAPI/*~
+	-$(RM) common/*.o
+	-$(RM) control/*.o
+	-$(RM) simulation/*.o
+	-$(RM) domain/*.o
+	-$(RM) mclAPI/*.o
+

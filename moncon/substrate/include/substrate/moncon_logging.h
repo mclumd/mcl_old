@@ -1,0 +1,12 @@
+#include "umbc/logger.h"
+
+#define MONL_HOSTDBG umbc::UMBCLOG_HOSTDBG
+#define MONL_MSG umbc::UMBCLOG_MSG
+#define MONL_HOSTMSG umbc::UMBCLOG_HOSTMSG
+#define MONL_PRE umbc::UMBCLOG_PRE
+#define MONL_VRB umbc::UMBCLOG_VRB
+#define MONL_WARNING   umbc::UMBCLOG_WARNING
+#define MONL_HOSTERR     umbc::UMBCLOG_HOSTERR
+#define MONL_BREAK     umbc::UMBCLOG_BREAK
+#define MONL_VIOLATION umbc::UMBCLOG_VIOLATION
+#define MONL_HOSTEVENT umbc::UMBCLOG_HOSTEVENT

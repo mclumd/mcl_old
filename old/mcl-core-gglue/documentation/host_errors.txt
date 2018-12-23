@@ -1,0 +1,11 @@
+This document describes possible errors in the host API that MCL
+should be able to deal with.
+
+1) multiply defined expectation groups
+   why? because expectation groups are not deleted immediately
+   the host might execute dissolve and declare with the same action
+   without monitoring in between.
+
+   it is fair for the host to do this and so some checking must go on
+   to reconcile the multiply defined expectation group.
+

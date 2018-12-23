@@ -1,0 +1,9 @@
+marsSim
+# set dontDeclareExpectations t
+agent mars_rover ("rover1")
+agent mars_rover ("rover2")
+agent dispatch ("dispatcher1")
+agent relay_station ("relay_alpha" 3)
+controller rover_ugpa "rover1" ()
+controller rover_ugpa "rover2" ()
+controller tcp_dispatch "dispatcher1" ("tcp1c" 1)

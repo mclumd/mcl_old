@@ -1,0 +1,77 @@
+HOW TO GET STARTED WITH THE MARS SIMULATOR
+------------------------------------------
+
+STEP 1 - BUILD (linux instructions)
+=======================================
+
+Ensure you have g++ and make installed.
+
+Get, and "make install" umbc_utils and mcl_2_0.
+
+Ensure that /usr/local/lib/ is in your LD_LIBRARY_PATH.
+
+Make the moncon substrate by running "make" in the moncon directory.
+
+Make the mars_main executable by running "make" in the
+moncon/domains/mars directory.
+
+STEP 2 - CONFIGURE (linux instructions)
+=======================================
+
+There are several files that you will want/need to have in place in
+order to run the Mars simulator in configurations other than the
+default.
+
+All files described here are flat text unless otherwise noted.
+
+ SETTINGS FILES....
+ see umbc_utils/docs/guide.pdf for more information on settings files.
+ NOTE that all settings set in files will be overridden by the command line.
+ NOTE that you should just copy the sample settings files to the approp
+
+ ~/.umbcutil_settings
+ this is the settings file for umbc utils.
+ sample settings in umbc_utils/assets/settings.tet can be copied 
+ to ~/.umbcutil_settings
+
+ ~/.mcl_settings
+ settings file for MCL. if you will not be using MCL, this is optional.
+ the setting "mcl.reply=prolog" is required for use with ALFRED.
+ allows you to set up default directories, etc. for MCL.
+ sample settings in mcl_2_0/assets/settings.tet
+ 
+ ~/.mars_settings
+ settings file for Mars/Moncon. mostly configuration and output options.
+ sample settings in moncon/domains/mars/assets/settings.tet
+
+ TIMELINES....
+ timelines will allow you to schedule events
+ and goals in the simulation. 
+ sample timeline in moncon/domains/mars/assets/mars_sample.tl
+
+ CONFIG FILES....
+ config files define the agents and controllers used in the
+ simulation.  note that in moncon/domains/mars/assets, there are
+ several configuration files (they end in *.mars). these files can be
+ used by mars_main either by specifying them in settings files or in
+ the command line:
+
+ ./mars_main --mars.config assets/tcp_config.mars
+
+ and the config files can also override stuff in the settings file
+ through use of the "set" config command. set commands will even
+ override the command line.
+ 
+STEP 3 - RUN (linux instructions)
+=======================================
+
+after setting up the necessary configuration, you should be able to
+run using
+
+./mars_main
+
+note that any setting that occurs in a settings file can be specified
+from the command line by preceeding the keyword with two dashes:
+
+./mars_main --mars.logfile alfredlog.html
+

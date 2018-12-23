@@ -1,0 +1,29 @@
+digraph failures {
+  size="8,10"
+  "failure(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "knowledgeError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "plantError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "modelError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "predictiveModelError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorNoise(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorMiscalibrated(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorMalfunction(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorStuck(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "sensorNonsensical(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  "knowledgeError(0.50)" -> "failure(0.50)";
+  "plantError(0.50)" -> "failure(0.50)";
+  "unclassifiedIndication(0.50)" -> "failure(0.50)" [style = dotted];
+  "modelError(0.50)" -> "knowledgeError(0.50)";
+  "sensorError(0.50)" -> "plantError(0.50)";
+  "modelError(0.50)" -> "predictiveModelError(0.50)";
+  "resourceUnchanged(0.50)" -> "predictiveModelError(0.50)" [style = dotted];
+  "sensorNoise(0.50)" -> "sensorError(0.50)";
+  "sensorMiscalibrated(0.50)" -> "sensorError(0.50)";
+  "sensorMalfunction(0.50)" -> "sensorError(0.50)";
+  "sensorStuck(0.50)" -> "sensorMalfunction(0.50)";
+  "sensorNonsensical(0.50)" -> "sensorMalfunction(0.50)";
+  "sensorsCanFail(0.00)" -> "sensorMalfunction(0.50)" [style = dotted];
+  "resourceUnchanged(0.50)" -> "sensorStuck(0.50)" [style = dotted];
+  "moveFailure(0.50)" -> "sensorStuck(0.50)" [style = dotted];
+}

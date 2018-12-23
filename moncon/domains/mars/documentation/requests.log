@@ -1,0 +1,17 @@
+CURRENT
+
+102/1/2008 MS
+  - fix grammars to present parameterized commands
+    create has-grammar class which can publish its own grammar
+
+9/26/2008 MS
+  - extend grammar to define location and target
+  
+
+COMPLETE
+
+9/22/2008 MS
+  - add 'swb' command to 'step while busy'
+    + refresh 'busy' commands for agents and controllers
+    + add swb to dispatch command_grammar
+    + add busy message to ack/cack

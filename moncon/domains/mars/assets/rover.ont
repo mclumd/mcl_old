@@ -1,0 +1,18 @@
+include basic
+
+ontology failures (
+  node failure(name=mapOutOfDate,
+	       doc="class of failures in which the map is wrong.")
+)
+
+ontology responses (
+  node concResponse(name=rescue,
+		    doc="performs all known actions to reset the rover.",
+		    code=crc_rescue,
+		    cost=1.0)
+)
+
+linkage all (
+  link abstraction(src=mapOutOfDate,dst=predictiveModelError)
+  link prescriptive(src=failure,dst=rescue)
+)

@@ -1,0 +1,15 @@
+digraph failures {
+  size="8,10"
+  "failure(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "knowledgeError(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "modelError(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "predictiveModelError(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "proceduralModelError(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "storyError(0.00)" [shape=ellipse,color=red,fontcolor=red];
+  "knowledgeError(0.00)" -> "failure(0.00)";
+  "indication(0.00)" -> "failure(0.00)" [style = dotted];
+  "storyError(0.00)" -> "knowledgeError(0.00)";
+  "modelError(0.00)" -> "knowledgeError(0.00)";
+  "predictiveModelError(0.00)" -> "modelError(0.00)";
+  "proceduralModelError(0.00)" -> "modelError(0.00)";
+}

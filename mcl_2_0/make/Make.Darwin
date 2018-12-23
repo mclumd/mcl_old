@@ -1,0 +1,29 @@
+# =================================================
+#               M a k e . D a r w i n
+# =================================================
+
+# Operating specific Make file variables for
+# uname -a == Darwin (OS/X Power Macintosh)
+
+CC = g++
+LD = g++
+CP = cp
+RM = rm
+LS = ls
+CAT = cat
+MDIR = mkdir
+
+CFLAGS = -g
+LINKFLAGS = -dynamiclib
+
+LIBEXT        = dylib
+STATIC_LIBEXT = a
+
+MACHINE = $(shell hostname -s)
+ARCH = $(shell uname -p)
+
+JAVA_BUILD_DIR = $(HOME)
+
+# =================================================
+# end            M a k e . D a r w i n          end
+# =================================================

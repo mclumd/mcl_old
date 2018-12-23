@@ -1,0 +1,185 @@
+# BASIC.ONT .... basic MCL ontology description file
+
+# node types:
+#
+# hostProp - host properties
+# genInd - general purpose indication node
+# concInd - concrete (fringe) indication directly activatable by MCL
+# iCore - indication core node 
+# HII - Host Initiated Indication
+# failure - general purpose failure node
+# genResponse - general purpose response node
+# interactive - boolean interactive response node
+# concResponse - concrete (implementable) response node
+
+# link types:
+#
+# > intraontological
+# link abstraction(src=,dst=)
+#      - from specific (src) node to more general (dst)
+# link IFC(src=,dst=)
+#      - Indication Fringe to Core
+# link specification(src=,dst=)
+#      - from abstract to specific (response ontology base type)
+#
+# > interontological
+# link diagnostic(src=,dst=)
+#      - link from indication to failure
+
+ontology indications (
+  # host properties...
+
+  node hostProp(name=sensorsCanFail,
+		prop=pci_sensors_can_fail)
+  node hostProp(name=effectorsCanFail,
+		prop=pci_effectors_can_fail)
+  node hostProp(name=actionInPlay,
+		prop=pci_action_in_play)
+  node genInd(name=hostProp,
+	      doc="supernode for host properties to ensure full linkage.")
+
+  node concInd(name=state)
+  node concInd(name=resource)
+  node concInd(name=temporal)
+  node concInd(name=spatial)
+  node concInd(name=unspecified_sc)
+
+  node iCore(name=unclassifiedIndication,
+	     doc="core indication for temporarily orphaned fringe nodes.")
+
+  node genInd(name=divergence,
+	      doc="observable did not do what was expected (this is general)")
+  node genInd(name=aberration,
+	      doc="observable changed when it was not supposed to.")
+  node genInd(name=breakout-low,
+	      doc="observable fell through a floor expectation.")
+  node genInd(name=breakout-high,
+	      doc="observable exceeded a ceiling expectation.")
+  node genInd(name=missed-target,
+	      doc="observable was supposed to change but missed the target.")
+  node genInd(name=short-of-target,
+	      doc="observable lower than expected target.")
+  node genInd(name=long-of-target,
+	      doc="observable higher than expected target.")
+  node genInd(name=missed-unchanged,
+	      doc="was supposed to change to target but didn't change at all.")
+
+  node iCore(name=resourceUnchanged,
+             doc="a resource level apparently did not change.")
+  node iCore(name=stuck,
+	     doc="a spatial sensor/expectation indicates an expected movement did not occur.")
+
+  node HII(name=sensorVerifiedBroken,
+	   doc="the host is verifying that a sensor appears nonfunctional.")
+  node HII(name=sensorVerifiedWorking,
+	   doc="the host is verifying that a sensor of interest appears to be working.")
+
+)
+
+linkage indications-intra (
+
+  link abstraction(src=sensorsCanFail,dst=hostProp)
+  link abstraction(src=effectorsCanFail,dst=hostProp)
+  link abstraction(src=actionInPlay,dst=hostProp)
+
+  link IFC(src=state,dst=unclassifiedIndication)
+  link IFC(src=temporal,dst=unclassifiedIndication)
+
+  link abstraction(src=aberration,dst=divergence)
+  link abstraction(src=breakout-low,dst=aberration)
+  link abstraction(src=breakout-high,dst=aberration)
+
+  link abstraction(src=missed-target,dst=divergence)
+  link abstraction(src=missed-unchanged,dst=missed-target)
+  link abstraction(src=short-of-target,dst=missed-target)
+  link abstraction(src=long-of-target,dst=missed-target)
+
+  link IFC(src=resource,dst=resourceUnchanged)
+  link IFC(src=missed-unchanged,dst=resourceUnchanged)
+  link IFC(src=spatial,dst=stuck)
+  link IFC(src=missed-unchanged,dst=stuck)
+
+)
+
+ontology failures (
+  node failure(name=failure,
+	       doc="the class of all failures.")
+  node failure(name=knowledgeError,
+	       doc="class of failures pertaining to internal knowledge and representations.")
+
+  node failure(name=plantError,
+	       doc="class of failures pertaining to the physical agent.")
+  node failure(name=modelError,
+	       doc="class of failures pertaining to internal representations.")
+  node failure(name=predictiveModelError,
+	       doc="class of failures in which inaccurate predictions made by models are causing anomalies.")
+  node failure(name=proceduralModelError,
+	       doc="class of failures in which inadequacies in a procedural model is causing anomalies.")
+  node failure(name=effectorError,
+	       doc="class of failures in which an effector is not operating to spec.")
+  node failure(name=sensorError,
+	       doc="class of failures in which a sensor is not operating to spec.")
+  node failure(name=sensorNoise,
+	       doc="anomaly is caused by noise outside of specified parameters.")
+  node failure(name=sensorMiscalibrated,
+	       doc="anomaly is caused by misconfiguration or calibration of a sensor.")
+  node failure(name=sensorMalfunction,
+	       doc="anomaly is caused by sensor fault other than noise.")
+  node failure(name=sensorStuck,
+	       doc="anomaly is caused by a sensor that is no longer changing according to specification.")
+
+
+)
+
+linkage failure-intra (
+
+  link abstraction(src=knowledgeError,dst=failure)
+  link abstraction(src=plantError,dst=failure)
+  link abstraction(src=modelError,dst=knowledgeError)
+  link abstraction(src=predictiveModelError,dst=modelError)
+  link abstraction(src=proceduralModelError,dst=modelError)
+  link abstraction(src=sensorError,dst=plantError)
+  link abstraction(src=sensorNoise,dst=sensorError)
+  link abstraction(src=sensorStuck,dst=sensorError)
+  link abstraction(src=sensorMiscalibrated,dst=sensorError)
+  link abstraction(src=sensorMalfunction,dst=sensorError)
+  link abstraction(src=effectorError,dst=plantError)
+
+)
+
+ontology responses (
+  node genResponse(name=response,
+  	           doc="root of all responses.")
+  node concResponse(name=rescue,
+		    code=crc_rescue,
+ 	            doc="attempt all known recovery/rescue protocols.")
+  node concResponse(name=tryAgain,
+		    code=crc_try_again,
+  	            doc="re-attempt anomalous behavior.")
+  node concResponse(name=giveUp,
+  	            doc="terminal state on an anomaly fix.",
+		    code=crc_give_up)
+
+)
+
+linkage response-intra (
+
+  link specification(src=response,dst=rescue)
+  link specification(src=response,dst=giveUp)
+  link specification(src=response,dst=tryAgain)
+
+)
+
+linkage inter (
+
+  link diagnostic(src=unclassifiedIndication,dst=failure)
+  link diagnostic(src=sensorsCanFail,dst=sensorMalfunction)
+  link diagnostic(src=resourceUnchanged,dst=predictiveModelError)
+  link diagnostic(src=stuck,dst=sensorStuck)
+  link diagnostic(src=stuck,dst=effectorError)
+
+  link prescriptive(src=failure,dst=rescue)
+  link prescriptive(src=failure,dst=giveUp)
+  link prescriptive(src=failure,dst=tryAgain)
+
+)

@@ -1,0 +1,823 @@
+%!PS-Adobe-2.0
+%%Creator: dot version 2.8 (Wed Dec 20 14:50:18 UTC 2006)
+%%For: (schmill) Matt Schmill,,,
+%%Title: responses
+%%Pages: (atend)
+%%BoundingBox: 36 36 620 201
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+/alignedtext {			% width adj text
+	/text exch def
+	/adj exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			text stringwidth pop adj mul 0 rmoveto
+		} if
+		[] 0 setdash
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+%%Page: 1 1
+%%PageBoundingBox: 36 36 620 201
+%%PageOrientation: Portrait
+gsave
+36 36 584 165 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0.3967 set_scale
+10 10 translate 0 rotate
+0.000 0.000 1.000 graphcolor
+0.000 0.000 1.000 graphcolor
+newpath -15 -15 moveto
+-15 411 lineto
+1467 411 lineto
+1467 -15 lineto
+closepath
+fill
+0.000 0.000 1.000 graphcolor
+newpath -15 -15 moveto
+-15 411 lineto
+1467 411 lineto
+1467 -15 lineto
+closepath
+stroke
+0.000 0.000 0.000 graphcolor
+14.00 /Times-Roman set_font
+% response(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+884 378 55 18 ellipse_path
+stroke
+gsave 10 dict begin
+842 373 moveto
+(response\(0.50\))
+[4.56 6.24 5.52 6.96 6.96 6.96 5.52 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% internalResponse(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+884 306 78 18 ellipse_path
+stroke
+gsave 10 dict begin
+818 301 moveto
+(internalResponse\(0.50\))
+[3.84 6.96 3.84 6.24 4.56 6.96 6.24 3.84 9.36 6.24 5.52 6.96 6.96 6.96 5.52 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% response(0.50)->internalResponse(0.50)
+newpath 884 360 moveto
+884 352 884 343 884 334 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 888 334 moveto
+884 324 lineto
+881 334 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 888 334 moveto
+884 324 lineto
+881 334 lineto
+closepath
+stroke
+end grestore
+% plantResponse(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+574 234 71 18 ellipse_path
+stroke
+gsave 10 dict begin
+515 229 moveto
+(plantResponse\(0.50\))
+[6.96 3.84 6.24 6.96 3.84 9.36 6.24 5.52 6.96 6.96 6.96 5.52 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% internalResponse(0.50)->plantResponse(0.50)
+newpath 829 293 moveto
+775 281 693 261 636 248 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 636 245 moveto
+626 246 lineto
+635 251 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 636 245 moveto
+626 246 lineto
+635 251 lineto
+closepath
+stroke
+end grestore
+% systemResponse(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+1040 234 76 18 ellipse_path
+stroke
+gsave 10 dict begin
+976 229 moveto
+(systemResponse\(0.50\))
+[5.52 6.96 5.52 3.84 6.24 10.8 9.36 6.24 5.52 6.96 6.96 6.96 5.52 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% internalResponse(0.50)->systemResponse(0.50)
+newpath 919 290 moveto
+942 279 972 266 996 254 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 997 257 moveto
+1005 250 lineto
+994 251 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 997 257 moveto
+1005 250 lineto
+994 251 lineto
+closepath
+stroke
+end grestore
+% runDiagnostic(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+88 162 70 18 ellipse_path
+stroke
+gsave 10 dict begin
+31 157 moveto
+(runDiagnostic\(0.50\))
+[4.56 6.96 6.96 10.08 3.84 6.24 6.96 6.96 6.96 5.52 3.84 3.84 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% plantResponse(0.50)->runDiagnostic(0.50)
+newpath 508 227 moveto
+428 218 287 201 167 180 curveto
+161 179 156 178 150 176 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 150 173 moveto
+140 174 lineto
+149 179 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 150 173 moveto
+140 174 lineto
+149 179 lineto
+closepath
+stroke
+end grestore
+% resetSensor(0.43)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 852 108 moveto
+736 108 lineto
+736 72 lineto
+852 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+744 85 moveto
+(resetSensor\(0.43\))
+[4.56 6.24 5.52 6.24 3.84 7.68 6.24 6.96 5.52 6.96 4.56 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% plantResponse(0.50)->resetSensor(0.43)
+newpath 640 227 moveto
+730 218 883 199 899 180 curveto
+910 167 908 157 899 144 curveto
+891 130 876 119 861 111 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 862 108 moveto
+852 106 lineto
+859 114 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 862 108 moveto
+852 106 lineto
+859 114 lineto
+closepath
+stroke
+end grestore
+% resetEffector(0.50)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 480 180 moveto
+358 180 lineto
+358 144 lineto
+480 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+365 157 moveto
+(resetEffector\(0.50\))
+[4.56 6.24 5.52 6.24 3.84 8.64 4.56 4.56 6.24 6.24 3.84 6.96 4.56 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% plantResponse(0.50)->resetEffector(0.50)
+newpath 540 218 moveto
+519 208 491 195 467 184 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 469 181 moveto
+458 180 lineto
+466 187 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 469 181 moveto
+458 180 lineto
+466 187 lineto
+closepath
+stroke
+end grestore
+% amendKnowledgeBase(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+1040 162 94 18 ellipse_path
+stroke
+gsave 10 dict begin
+958 157 moveto
+(amendKnowledgeBase\(0.50\))
+[6.24 10.8 6.24 6.96 6.96 10.08 6.96 6.96 10.08 3.84 6.24 6.96 6.96 6.24 9.36 6.24 5.52 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% systemResponse(0.50)->amendKnowledgeBase(0.50)
+newpath 1040 216 moveto
+1040 208 1040 199 1040 190 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1044 190 moveto
+1040 180 lineto
+1037 190 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 1044 190 moveto
+1040 180 lineto
+1037 190 lineto
+closepath
+stroke
+end grestore
+% tryAgain(0.50)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 1252 180 moveto
+1152 180 lineto
+1152 144 lineto
+1252 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+1160 157 moveto
+(tryAgain\(0.50\))
+[3.84 4.56 6.96 10.08 6.96 6.24 3.84 6.96 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% systemResponse(0.50)->tryAgain(0.50)
+newpath 1076 218 moveto
+1098 208 1127 195 1153 184 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1154 187 moveto
+1162 180 lineto
+1151 181 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 1154 187 moveto
+1162 180 lineto
+1151 181 lineto
+closepath
+stroke
+end grestore
+% runSensorDiagnostic(0.50)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 517 108 moveto
+349 108 lineto
+349 72 lineto
+517 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+357 85 moveto
+(runSensorDiagnostic\(0.50\))
+[4.56 6.96 6.96 7.68 6.24 6.96 5.52 6.96 4.56 10.08 3.84 6.24 6.96 6.96 6.96 5.52 3.84 3.84 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% runDiagnostic(0.50)->runSensorDiagnostic(0.50)
+newpath 140 150 moveto
+149 148 158 146 167 144 curveto
+224 132 288 119 339 108 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 340 111 moveto
+349 106 lineto
+339 105 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 340 111 moveto
+349 106 lineto
+339 105 lineto
+closepath
+stroke
+end grestore
+% runEffectorDiagnostic(0.50)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 176 108 moveto
+0 108 lineto
+0 72 lineto
+176 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+8 85 moveto
+(runEffectorDiagnostic\(0.50\))
+[4.56 6.96 6.96 8.64 4.56 4.56 6.24 6.24 3.84 6.96 4.56 10.08 3.84 6.24 6.96 6.96 6.96 5.52 3.84 3.84 6.24 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% runDiagnostic(0.50)->runEffectorDiagnostic(0.50)
+newpath 88 144 moveto
+88 136 88 127 88 118 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 92 118 moveto
+88 108 lineto
+85 118 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 92 118 moveto
+88 108 lineto
+85 118 lineto
+closepath
+stroke
+end grestore
+% amendPredictiveModels(0.50)
+gsave 10 dict begin
+0.333 1.000 1.000 nodecolor
+1200 90 98 18 ellipse_path
+stroke
+gsave 10 dict begin
+1115 85 moveto
+(amendPredictiveModels\(0.50\))
+[6.24 10.8 6.24 6.96 6.96 7.68 4.56 6.24 6.96 3.84 6.24 3.84 3.84 6.96 6.24 12.48 6.96 6.96 6.24 3.84 5.52 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% amendKnowledgeBase(0.50)->amendPredictiveModels(0.50)
+newpath 1077 145 moveto
+1100 135 1129 122 1154 111 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1155 114 moveto
+1163 107 lineto
+1152 108 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 1155 114 moveto
+1163 107 lineto
+1152 108 lineto
+closepath
+stroke
+end grestore
+% rebuildPredictiveModels(0.50)
+gsave 10 dict begin
+0.051 0.718 0.627 nodecolor
+newpath 1294 36 moveto
+1106 36 lineto
+1106 0 lineto
+1294 0 lineto
+closepath
+stroke
+gsave 10 dict begin
+1113 13 moveto
+(rebuildPredictiveModels\(0.50\))
+[4.56 6.24 6.96 6.96 3.84 3.84 6.96 7.68 4.56 6.24 6.96 3.84 6.24 3.84 3.84 6.96 6.24 12.48 6.96 6.96 6.24 3.84 5.52 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% amendPredictiveModels(0.50)->rebuildPredictiveModels(0.50)
+newpath 1200 72 moveto
+1200 64 1200 55 1200 46 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1204 46 moveto
+1200 36 lineto
+1197 46 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 1204 46 moveto
+1200 36 lineto
+1197 46 lineto
+closepath
+stroke
+end grestore
+% sensorVerifiedBroken(0.50)
+gsave 10 dict begin
+589 162 91 18 ellipse_path
+stroke
+gsave 10 dict begin
+510 157 moveto
+(sensorVerifiedBroken\(0.50\))
+[5.52 6.24 6.96 5.52 6.96 4.56 10.08 6.24 4.56 3.84 4.56 3.84 6.24 6.96 9.36 4.56 6.96 6.96 6.24 6.96 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% sensorVerifiedBroken(0.50)->runSensorDiagnostic(0.50)
+gsave 10 dict begin
+dotted
+newpath 553 145 moveto
+532 135 505 123 481 112 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 483 109 moveto
+472 108 lineto
+480 115 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 483 109 moveto
+472 108 lineto
+480 115 lineto
+closepath
+stroke
+end grestore
+end grestore
+% sensorVerifiedBroken(0.50)->resetSensor(0.43)
+gsave 10 dict begin
+dotted
+newpath 634 146 moveto
+663 136 701 123 733 111 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 734 114 moveto
+743 108 lineto
+732 108 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 734 114 moveto
+743 108 lineto
+732 108 lineto
+closepath
+stroke
+end grestore
+end grestore
+% sensorVerifiedWorking(0.50)
+gsave 10 dict begin
+794 162 96 18 ellipse_path
+stroke
+gsave 10 dict begin
+711 157 moveto
+(sensorVerifiedWorking\(0.50\))
+[5.52 6.24 6.96 5.52 6.96 4.56 10.08 6.24 4.56 3.84 4.56 3.84 6.24 6.96 13.2 6.96 4.56 6.96 3.84 6.96 6.96 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% sensorVerifiedWorking(0.50)->runSensorDiagnostic(0.50)
+gsave 10 dict begin
+dotted
+newpath 728 149 moveto
+672 138 590 122 527 109 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 527 106 moveto
+517 107 lineto
+526 112 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 527 106 moveto
+517 107 lineto
+526 112 lineto
+closepath
+stroke
+end grestore
+end grestore
+% sensorVerifiedWorking(0.50)->resetSensor(0.43)
+gsave 10 dict begin
+dotted
+newpath 794 144 moveto
+794 136 794 127 794 118 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 798 118 moveto
+794 108 lineto
+791 118 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 798 118 moveto
+794 108 lineto
+791 118 lineto
+closepath
+stroke
+end grestore
+end grestore
+% sensorMalfunction(0.50)
+gsave 10 dict begin
+258 162 82 18 ellipse_path
+stroke
+gsave 10 dict begin
+188 157 moveto
+(sensorMalfunction\(0.50\))
+[5.52 6.24 6.96 5.52 6.96 4.56 12.48 6.24 3.84 4.56 6.96 6.96 6.24 3.84 3.84 6.96 6.96 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% sensorMalfunction(0.50)->runSensorDiagnostic(0.50)
+gsave 10 dict begin
+dotted
+newpath 297 146 moveto
+321 136 353 123 380 112 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 381 115 moveto
+389 108 lineto
+378 109 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 381 115 moveto
+389 108 lineto
+378 109 lineto
+closepath
+stroke
+end grestore
+end grestore
+% predictiveModelError(0.50)
+gsave 10 dict begin
+1361 162 91 18 ellipse_path
+stroke
+gsave 10 dict begin
+1282 157 moveto
+(predictiveModelError\(0.50\))
+[6.96 4.56 6.24 6.96 3.84 6.24 3.84 3.84 6.96 6.24 12.48 6.96 6.96 6.24 3.84 8.64 4.56 4.56 6.96 4.56 4.56 6.96 3.6 6.96 6.96 4.56]
+xshow
+end grestore
+end grestore
+% predictiveModelError(0.50)->amendPredictiveModels(0.50)
+gsave 10 dict begin
+dotted
+newpath 1324 145 moveto
+1301 135 1272 122 1247 111 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1249 108 moveto
+1238 107 lineto
+1246 114 lineto
+closepath
+fill
+0.000 0.000 0.000 edgecolor
+newpath 1249 108 moveto
+1238 107 lineto
+1246 114 lineto
+closepath
+stroke
+end grestore
+end grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF

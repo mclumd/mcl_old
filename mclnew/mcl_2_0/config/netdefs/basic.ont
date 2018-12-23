@@ -1,0 +1,92 @@
+# JEDIT.ONT .... MCL ontology description file for jEdit
+
+# node types:
+#
+# hostProp - host properties
+# genInd - general purpose indication node
+# concInd - concrete (fringe) indication directly activatable by MCL
+# iCore - indication core node 
+# HII - Host Initiated Indication
+# failure - general purpose failure node
+# genResponse - general purpose response node
+# interactive - boolean interactive response node
+# concResponse - concrete (implementable) response node
+
+# link types:
+#
+# > intraontological
+# link abstraction(src=,dst=)
+#      - from specific (src) node to more general (dst)
+# link IFC(src=,dst=)
+#      - Indication Fringe to Core
+# link specification(src=,dst=)
+#      - from abstract to specific (response ontology base type)
+#
+# > interontological
+# link diagnostic(src=,dst=)
+#      - link from indication to failure
+# link inhibitory(src=,dst=)
+#      - link from indication to response (inhibiting response)
+# link support(src=,dst=)
+#      - link from indication to response (supporting response)
+
+ontology indications (
+  node genInd(name=indication,
+  	           doc="root of all Indications.")
+  node genInd(name=observable,
+	           doc="Parent of all sensors.")
+  node genInd(name=divergence,
+	           doc="Sensor failure type.") 
+  #sensor
+  node concInd(name=sc:rejectflag,
+	           doc="Rejection Flag turned on.")
+)
+
+ontology failures (
+  node failure(name=failure,
+	       doc="the class of all failures.")
+  node failure(name=reject,
+	       doc="AutoComplete suggestion rejected.")
+)
+
+ontology responses (
+  node genResponse(name=response,
+  	           doc="root of all responses.")
+  node genResponse(name=internalResponse,
+	           doc="response taken internally to the host.")
+  node genResponse(name=externalResponse,
+	           doc="response taken with external help.")
+  node genResponse(name=systemResponse,
+  	           doc="response pertaining to the soft agent.")
+  node concResponse(name=disablePopup,
+		    code=crc_disable_popup,
+  	            doc="Disable the AutoComplete Popup.")
+)
+
+linkage all (
+
+  # intra I links
+
+  link abstraction(src=observable,dst=indication)
+  link abstraction(src=divergence,dst=indication)
+  link abstraction(src=sc:rejectflag,dst=observable)
+
+  # intra F links
+
+  link abstraction(src=reject,dst=failure)
+
+  # intra R links
+
+  link specification(src=response,dst=internalResponse)
+  link specification(src=internalResponse,dst=systemResponse)
+  link specification(src=response,dst=externalResponse)
+  link specification(src=systemResponse,dst=disablePopup)
+
+  # inter links
+
+  link diagnostic(src=indication,dst=failure)
+  link diagnostic(src=indication,dst=response)
+  link diagnostic(src=sc:rejectflag,dst=reject)
+  link support(src=sc:rejectflag,dst=disablePopup)
+  link prescriptive(src=reject,dst=disablePopup)
+)

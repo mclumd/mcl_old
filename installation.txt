@@ -1,0 +1,27 @@
+Some notes from a 2008-9-11 email from Matt on installing MCL and the MonCon simulator:
+
+Mcl
+
+   1. set the environment variable MCL_CORE_PATH to point to MCL's directory
+      MCL_CORE_PATH=/fs/metacog/group/mcl/mcl-core-gglue/
+      this will allow the MCL library to find default configuration files
+   2. mcl builds to a library, found at /fs/metacog/group/mcl/mcl-core-gglue/libMCL2core.so
+   3. running "make" in the mcl-core-gglue directory builds this library
+
+MonCon/Mars
+
+   1. running "make" in the /fs/metacog/group/mcl/moncon directory will build two libraries
+      the moncon_substrate.so library, which provides a simulator substrate
+      the moncon_utils.so library, which contains some general-purpose utilities
+   2. the mars simulation is build on the substrate, and can be found in moncon/domains/mars
+   3. running "make" in moncon/domains/mars will build the default application mars_main
+   4. mars_main will read a file .mc_config from the cwd to set up the simulation
+      it is a plain text file with agent, controller, and basic parameter definitions
+      by default, it creates 2 rovers with planner controllers, a relay station, and a tcp dispatcher
+   5. mars_main can take -- arguments to change parameters:
+          * --port <port> to change tcp port; default is 8400
+          * --timeline <tl_file> to load a timeline (see mars_sample.tl for example)
+   6. once the simulator is brought up, you can connect to it using telnet
+      telnet localhost 8400
+   7. type "grammar" into telnet for possible commands
+

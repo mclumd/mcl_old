@@ -1,0 +1,13 @@
+marsSim
+# set dontDeclareExpectations t
+agent mars_rover ("brutus")
+agent relay_station ("relay_alpha" 3)
+controller (rover_maintenance_layer rugpa_reactive_layer rover_ugpa) "brutus" ()
+# agent dispatch ("dispatcher1")
+# controller tty_dispatch "dispatcher1" ("tty1c" 1)
+# controller tcp_dispatch "dispatcher1" ("tcp1c" 1)
+set mars.noEvents true
+set moncon.noSBEs true
+set moncon.noEBEs true
+set mars.datafile mars_data.out
+set mcl.breakOnViolation false

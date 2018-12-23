@@ -1,0 +1,26 @@
+marsSim
+set mcl.breakOnViolation false
+set mars.usemcl.mars_rover true
+#
+agent mars_rover ("brutus")
+agent relay_station ("relay_alpha" 3)
+controller (rugpa_opportunistic_layer rover_ugpa) "brutus" ()
+#controller (rover_maintenance_layer rugpa_reactive_layer rover_ugpa) "brutus" ()
+#
+# agent dispatch ("dispatcher1")
+# controller tty_dispatch "dispatcher1" ("tty1c" 1)
+# controller tcp_dispatch "dispatcher1" ("tcp1c" 1)
+#
+set mars.noEvents false
+set moncon.noSBEs false
+set moncon.noEBEs false
+set mars.datafile mars_case2.out
+#
+# these are maintenance layer parameters which we do not need
+#set mars.rover.mlMRevery 1000
+#set mars.rover.mlSRevery 2000
+#set mars.rover.mlERevery 2000
+set brutus.mclOntology ablated_case2
+#
+# too late to change the following
+# set mars.logfile=jpaper_ev_sb_neb.html

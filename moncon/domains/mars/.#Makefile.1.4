@@ -1,0 +1,68 @@
+
+# defines, system commands
+
+CC = g++
+LD = g++
+RM = rm
+LIBEXT = so
+
+# defines, switches and flags
+
+include ../../Make.files
+
+CFLAGS     = -g -Wall -I/fs/metacog/group/mcl/umbc_utils/api
+LINKFLAGS  = -Wl,-G
+MONCONINCS = -I../../substrate/include
+MONCONLIBS = ../../libs/moncon_substrate.so
+
+# files
+
+DOMDIRS = agents common controllers env scorers
+DOMINCS = $(patsubst %,-I%/include,$(DOMDIRS))
+DOMSRCS = $(foreach d, $(DOMDIRS), $(wildcard $(d)/*.cc))
+DOMOBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(DOMSRCS)))
+
+## MAKE DOMAIN-SPECIFIC FLAG ADDITIONS HERE
+
+MARSLIBS = -lpthread -lUMBC
+
+#rules 
+
+%.o:    %.cc
+	$(CC) $(CFLAGS) $(DOMINCS) $(MONCONINCS) -I$(MCL_INC_DIR) -c $< -o $@
+
+mars_main: $(DOMOBJS) main.o #fixperms fixgrp
+	$(LD) -o mars_main $(MCL_LIBFILE) $^ -L../../libs $(MONCONLIBS)
+
+fixperms:
+	chmod a=u mars_main
+
+fixgrp:
+	chgrp active mars_main
+
+mars_test: $(DOMOBJS) test.o 
+	$(LD) -o mars_test $(MCL_LIBFILE) $^ -L../../libs $(MONCONLIBS)
+
+objects: $(DOMOBJS)
+
+libs: 
+	(cd ../..; make all)
+
+clean:
+	-$(RM) *~
+	-$(RM) main.o mars_main
+	-$(RM) agents/*.o
+	-$(RM) agents/*~
+	-$(RM) agents/include/*~
+	-$(RM) common/*.o
+	-$(RM) common/*~
+	-$(RM) common/include/*~
+	-$(RM) controllers/*.o
+	-$(RM) controllers/*~
+	-$(RM) controllers/include/*~
+	-$(RM) env/*.o
+	-$(RM) env/*~
+	-$(RM) env/include/*~
+	-$(RM) scorers/*.o
+	-$(RM) scorers/*~
+	-$(RM) scorers/include/*~

@@ -1,0 +1,22 @@
+## defs for system tools
+
+CC = g++
+LD = g++
+CP = cp
+RM = rm
+LS = ls
+CAT  = cat
+MDIR = mkdir
+
+CFLAGS = -g
+LINKFLAGS = -Wl,-G -shared 
+# -Wl,E = export all
+
+LIBEXT        = so
+STATIC_LIBEXT = a
+
+# feel free to overwrite these ones in Make.$(MACHINE)
+SYS_LIBDIR = /fs/metacog/group/mcl/lib
+SYS_INCLUDEDIR = /fs/metacog/group/mcl/include
+
+MACHINE = $(shell hostname)

@@ -1,0 +1,15 @@
+#include "umbc/logger.h"
+
+#define MARSL_HOSTDBG    umbc::UMBCLOG_HOSTDBG
+#define MARSL_MSG        umbc::UMBCLOG_MSG
+#define MARSL_HOSTMSG    umbc::UMBCLOG_HOSTMSG
+#define MARSL_PRE        umbc::UMBCLOG_PRE
+#define MARSL_VRB        umbc::UMBCLOG_VRB
+#define MARSL_HOSTVRB    umbc::UMBCLOG_HOSTVRB
+#define MARSL_WARNING    umbc::UMBCLOG_WARNING
+#define MARSL_HOSTERR    umbc::UMBCLOG_HOSTERR
+#define MARSL_BREAK      umbc::UMBCLOG_BREAK
+#define MARSL_VIOLATION  umbc::UMBCLOG_VIOLATION
+#define MARSL_HOSTEVENT  umbc::UMBCLOG_HOSTEVENT
+#define MARSL_SUCCESS    umbc::UMBCLOG_SUCCESS
+#define MARSL_SEPERATOR  umbc::UMBCLOG_SEPERATOR

@@ -1,0 +1,50 @@
+#include "substrate/dispatch.h"
+
+using namespace MonCon;
+
+string dispatch::success_prefix = "ok";
+string dispatch::ignored_prefix = "ignored";
+string dispatch::fail_prefix = "fail";
+
+string dispatch::generate_success_msg() {
+  return success_prefix + "(1)";
+}
+
+string dispatch::generate_success_msg(string annotation) {
+  return success_prefix + "(" + annotation + ")";
+}
+
+string dispatch::generate_ignored_msg() {
+  return ignored_prefix + "(1)";
+}
+
+string dispatch::generate_ignored_msg(string annotation) {
+  return ignored_prefix + "(" + annotation + ")";
+}
+
+string dispatch::generate_fail_msg() {
+  return fail_prefix + "(1)";
+}
+
+string dispatch::generate_fail_msg(string annotation) {
+  return fail_prefix + "(" + annotation + ")";
+}
+
+bool dispatch::is_success_msg(string msg) { 
+  return ((msg.length() >= success_prefix.length()) &&
+	  (msg.substr(0,success_prefix.length()) == success_prefix));
+}
+
+bool dispatch::is_ignored_msg(string msg) { 
+  return ((msg.length() >= ignored_prefix.length()) &&
+	  (msg.substr(0,ignored_prefix.length()) == ignored_prefix));
+}
+
+bool dispatch::is_fail_msg(string msg) { 
+  return ((msg.length() >= fail_prefix.length()) &&
+	  (msg.substr(0,fail_prefix.length()) == fail_prefix));
+}
+
+string dispatch::prologify(string msg) {
+  return "term(af("+msg+")).\n";
+}

@@ -1,0 +1,8 @@
+## system-specific definition overrides
+
+ifeq ($(SYS),Linux)
+	SYS_LIBDIR = /usr/lib
+	LOCAL_LIBDIR = /usr/local/lib
+else
+	$(error What OS are you running? -- can't find /usr/lib equivalent for $(MACHINE))
+endif

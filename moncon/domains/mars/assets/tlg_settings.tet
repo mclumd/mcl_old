@@ -1,0 +1,7 @@
+tlg.seed=2112
+tlg.length=1000
+tlg.config=assets/jpaper_config.mars
+tlg.rover_event_rate=0.005
+tlg.rover_goal_density=0.05
+tlg.domain_event_rate=0.05
+# tlg.output=jpaper_tl.tl

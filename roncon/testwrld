@@ -1,0 +1,4 @@
+#!/usr/bin/ksh
+
+/fs/metacog/group/robotics/player/bin/player /fs/metacog/group/mcl/roncon/config/qubit_testwrld.cfg
+

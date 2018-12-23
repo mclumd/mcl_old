@@ -1,0 +1,24 @@
+## defs for system tools
+
+CC = g++
+LD = g++
+CP = cp
+RM = rm
+LS = ls
+CAT = cat
+
+CFLAGS = -g
+LINKFLAGS = -Wl,-G -shared 
+# -Wl,E = export all
+
+LIBEXT        = so
+STATIC_LIBEXT = a
+
+MACHINE = $(shell hostname)
+
+PNL_LIBDIR = /usr/local/lib/
+PNL_INCDIRS = /usr/local/include/ /usr/local/high/include/ /usr/local/include/opencx/
+
+PNL_LINKFLAGS = -L/usr/local/lib -lpnl -lcxcore -lhigh -Wl,--rpath -Wl,/usr/local/lib
+
+JAVA_BUILD_DIR = $(HOME)

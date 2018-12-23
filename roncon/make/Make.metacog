@@ -1,0 +1,24 @@
+## defs for system tools
+
+CC = g++
+LD = g++
+CP = cp
+RM = rm
+LS = ls
+CAT = cat
+
+#PLAYERFLAGS = $(shell pkg-config --cflags playerc++)
+PLAYERFLAGS = -I/fs/metacog/group/robotics/player/include/player-2.1
+#PLAYERLIBS  = $(shell pkg-config --libs-only-l   playerc++)
+PLAYERLIBS = -lplayerc++ -lplayerc -lm -lplayerxdr -lplayererror
+
+#CFLAGS = -g -DSAFE $(PLAYERFLAGS)
+CFLAGS = -g -I/fs/metacog/group/mcl/umbc_utils/api -DSAFE $(PLAYERFLAGS)
+
+#LINKFLAGS = -Wl,-E,
+LINKFLAGS = -Wl,-E,-L/fs/metacog/group/mcl/umbc_utils,-L/fs/metacog/group/robotics/player/lib
+
+LIBEXT        = so
+STATIC_LIBEXT = a
+
+#LD_LIBRARY_PATH = /fs/metacog/group/mcl/umbc_utils

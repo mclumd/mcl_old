@@ -1,0 +1,111 @@
+digraph MCL {
+  size="16,20"
+  compound=true
+  subgraph cluster_indication {
+    label = "indication";
+    "sensorsCanFail(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "effectorsCanFail(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "intentional(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "parameterized(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "declarative(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "retrainable(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "hlcController(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "htnInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "planInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "actionInPlay(0.00)" [shape=diamond,color=sienna,fontcolor=sienna];
+    "hostProp(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+    "state(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+    "resource(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+    "temporal(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+    "spatial(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+    "unclassifiedIndication(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+    "divergence(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+    "missed_target(0.50)" [shape=ellipse,color=purple,fontcolor=purple];
+    "missed_unchanged(0.50)" [shape=ellipse,color=sienna,fontcolor=sienna];
+    "resourceUnchanged(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+    "moveFailure(0.50)" [shape=ellipse,color=purple,peripheries=2,fontcolor=purple];
+    "sensorVerifiedBroken(0.50)" [shape=rectangle,style=filled,fillcolor=sienna];
+    "sensorVerifiedWorking(0.50)" [shape=rectangle,style=filled,fillcolor=sienna];
+  }
+  subgraph cluster_failures {
+    label = "failures";
+    "failure(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "knowledgeError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "plantError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "modelError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "predictiveModelError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorError(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorNoise(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorMiscalibrated(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorMalfunction(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorStuck(0.50)" [shape=ellipse,color=red,fontcolor=red];
+    "sensorNonsensical(0.50)" [shape=ellipse,color=red,fontcolor=red];
+  }
+  subgraph cluster_responses {
+    label = "responses";
+    "response(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "internalResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "plantResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "systemResponse(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "runDiagnostic(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "runSensorDiagnostic(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+    "runEffectorDiagnostic(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+    "resetSensor(0.43)" [shape=rectangle,color=sienna,fontcolor=sienna];
+    "resetEffector(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+    "amendKnowledgeBase(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "amendPredictiveModels(0.50)" [shape=ellipse,color=green,fontcolor=green];
+    "rebuildPredictiveModels(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+    "tryAgain(0.50)" [shape=rectangle,color=sienna,fontcolor=sienna];
+  }
+  "intentional(0.00)" -> "hostProp(0.50)";
+  "effectorsCanFail(0.00)" -> "hostProp(0.50)";
+  "sensorsCanFail(0.00)" -> "hostProp(0.50)";
+  "parameterized(0.00)" -> "hostProp(0.50)";
+  "declarative(0.00)" -> "hostProp(0.50)";
+  "retrainable(0.00)" -> "hostProp(0.50)";
+  "hlcController(0.00)" -> "hostProp(0.50)";
+  "htnInPlay(0.00)" -> "hostProp(0.50)";
+  "planInPlay(0.00)" -> "hostProp(0.50)";
+  "actionInPlay(0.00)" -> "hostProp(0.50)";
+  "state(0.50)" -> "unclassifiedIndication(0.50)";
+  "temporal(0.50)" -> "unclassifiedIndication(0.50)";
+  "missed_target(0.50)" -> "divergence(0.50)";
+  "missed_unchanged(0.50)" -> "missed_target(0.50)";
+  "resource(0.50)" -> "resourceUnchanged(0.50)";
+  "missed_unchanged(0.50)" -> "resourceUnchanged(0.50)";
+  "spatial(0.50)" -> "moveFailure(0.50)";
+  "missed_unchanged(0.50)" -> "moveFailure(0.50)";
+  "knowledgeError(0.50)" -> "failure(0.50)";
+  "plantError(0.50)" -> "failure(0.50)";
+  "unclassifiedIndication(0.50)" -> "failure(0.50)" [style = dotted];
+  "modelError(0.50)" -> "knowledgeError(0.50)";
+  "sensorError(0.50)" -> "plantError(0.50)";
+  "modelError(0.50)" -> "predictiveModelError(0.50)";
+  "resourceUnchanged(0.50)" -> "predictiveModelError(0.50)" [style = dotted];
+  "sensorNoise(0.50)" -> "sensorError(0.50)";
+  "sensorMiscalibrated(0.50)" -> "sensorError(0.50)";
+  "sensorMalfunction(0.50)" -> "sensorError(0.50)";
+  "sensorStuck(0.50)" -> "sensorMalfunction(0.50)";
+  "sensorNonsensical(0.50)" -> "sensorMalfunction(0.50)";
+  "sensorsCanFail(0.00)" -> "sensorMalfunction(0.50)" [style = dotted];
+  "resourceUnchanged(0.50)" -> "sensorStuck(0.50)" [style = dotted];
+  "moveFailure(0.50)" -> "sensorStuck(0.50)" [style = dotted];
+  "response(0.50)" -> "internalResponse(0.50)";
+  "internalResponse(0.50)" -> "plantResponse(0.50)";
+  "internalResponse(0.50)" -> "systemResponse(0.50)";
+  "plantResponse(0.50)" -> "runDiagnostic(0.50)";
+  "runDiagnostic(0.50)" -> "runSensorDiagnostic(0.50)";
+  "sensorVerifiedBroken(0.50)" -> "runSensorDiagnostic(0.50)" [style = dotted];
+  "sensorVerifiedWorking(0.50)" -> "runSensorDiagnostic(0.50)" [style = dotted];
+  "sensorMalfunction(0.50)" -> "runSensorDiagnostic(0.50)" [style = dotted];
+  "runDiagnostic(0.50)" -> "runEffectorDiagnostic(0.50)";
+  "plantResponse(0.50)" -> "resetSensor(0.43)";
+  "sensorVerifiedBroken(0.50)" -> "resetSensor(0.43)" [style = dotted];
+  "sensorVerifiedWorking(0.50)" -> "resetSensor(0.43)" [style = dotted];
+  "plantResponse(0.50)" -> "resetEffector(0.50)";
+  "systemResponse(0.50)" -> "amendKnowledgeBase(0.50)";
+  "amendKnowledgeBase(0.50)" -> "amendPredictiveModels(0.50)";
+  "predictiveModelError(0.50)" -> "amendPredictiveModels(0.50)" [style = dotted];
+  "amendPredictiveModels(0.50)" -> "rebuildPredictiveModels(0.50)";
+  "systemResponse(0.50)" -> "tryAgain(0.50)";
+}

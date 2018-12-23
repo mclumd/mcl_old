@@ -1,0 +1,22 @@
+MCL_CORE_FILES = mclEntity.o mclOntology.o \
+		 keyGen.o mclSensorDef.o mclExceptions.o \
+		 mcl_observables.o \
+		 mclNode.o oNodes.o \
+		 links.o linkFactory.o dynamicILinks.o \
+		 noiseProfiles.o \
+		 expectations.o output.o \
+		 mclProperties.o expectationFactory.o \
+	 	 mclMonitorResponse.o \
+		 buildCore.o mcl_multiagent_api.o mcl_ma_observables.o \
+		 mcl.o mclFrame.o \
+		 textUtils.o mclLogger.o mclTimer.o mclSettings.o \
+		 abstractGlue.o hgGlue.o hgCPT.o glueFactory.o \
+		 smileGlue.o \
+		 topSort.o \
+		 config/ontology_config.o config/ontology_configurator.o \
+		 config/configRC.o config/configCPT.o \
+		 utils/makeDot.o
+		 # pnlGlue.o \
+		 # mclHostAPI.o 
+
+# MCL_CORE_FILES += $(patsubst %.cc,%.o,$(wildcard config/config*.cc))

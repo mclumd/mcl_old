@@ -1,0 +1,31 @@
+# commondirs
+
+SUBSTRATEDIRS = env agent controller common
+TEMPLATEDIRS  = $(SUBSTRATE) scorers
+
+# utils library
+
+UTIL_SRCS = $(wildcard util/*.cc)
+UTIL_OBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(UTIL_SRCS)))
+UTIL_INCL = -Iutil/include
+
+# substrate library
+
+SUBSTRATE_SRCS = $(foreach d, $(SUBSTRATEDIRS), $(wildcard substrate/$(d)/*.cc))
+SUBSTRATE_OBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SUBSTRATE_SRCS)))
+SUBSTRATE_INCL = -Isubstrate/include -Iutil/include
+
+# defines, directories and object files
+
+MARSDIRS = common simulation control domain mclAPI
+MARSINCS = $(patsubst %,-I%/include,$(MARSDIRS))
+MARSSRCS = $(foreach d, $(MARSDIRS), $(wildcard $(d)/*.cc))
+MARSOBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(MARSSRCS)))
+
+# defines, MCL stuff
+
+MCL_CORE_PATH = /fs/metacog/group/mcl/mcl_2_0
+MCL_LIB_DIRNAME = $(MCL_CORE_PATH)/
+MCL_LIB_FNAME = libMCL2core
+MCL_LIBFILE   = $(MCL_LIB_DIRNAME)$(MCL_LIB_FNAME).$(LIBEXT)
+MCL_INC_DIR   = $(MCL_LIB_DIRNAME)api

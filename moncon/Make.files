@@ -1,0 +1,22 @@
+# utils library... was changed to use umbc_utils 3/26/2009
+
+#UTIL_INCL = -I/usr/local/include/
+UTIL_INCL = -I/fs/metacog/group/mcl/include/
+#UTIL_LIBS = -lUMBC
+UTIL_LIBS = -L/fs/metacog/group/mcl/lib/-lUMBC
+
+# substrate library
+
+SUBSTRATEDIRS  = env agent controller common mcl
+SUBSTRATE_SRCS = $(foreach d,$(SUBSTRATEDIRS),$(wildcard substrate/$(d)/*.cc))
+SUBSTRATE_OBJS = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SUBSTRATE_SRCS)))
+SUBSTRATE_INCL = -Isubstrate/include
+
+# defines, MCL stuff
+
+MCL_CORE_PATH = /fs/metacog/group/mcl/mcl_2_0
+#MCL_LIB_DIRNAME = $(MCL_CORE_PATH)/
+MCL_LIB_DIRNAME = /fs/metacog/group/mcl/lib/
+MCL_LIB_FNAME = libMCL2core
+MCL_LIBFILE   = $(MCL_LIB_DIRNAME)$(MCL_LIB_FNAME).$(LIBEXT)
+MCL_INC_DIR   = $(MCL_LIB_DIRNAME)api

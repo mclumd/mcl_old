@@ -1,0 +1,4 @@
+#! /bin/tcsh -f
+setenv CVSROOT :ext:ai.cs.umbc.edu:/data/share/groups/coral_cvsroot
+setenv CVS_RSH ssh
+cvs checkout moncon

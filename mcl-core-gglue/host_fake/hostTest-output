@@ -1,0 +1,30 @@
+Initializing MCL: supervising fakeHost v1.0
+PV(intentional=0,effectorsCanFail=0,sensorsCanFail=0,parameterized=0,declarative=0,retrainable=0,htn_in_play=0,plan_in_play=0,can_ignore=1,can_noop=1,can_try_again=0,can_solicit_help=0,can_relinquish_control=0,can_sensor_diag=0,can_effector_diag=0,can_activate_learning=0,can_adj_params=0,can_rebuildmodels=0,can_revisit_assumptions=0,can_amend_controller=0,can_revise_expectations=0,can_swap_algorithms=0,can_change_hlc=0,=0,=0,=0)Restoring configuration for 'fakeHost v1.0'
+loading conditional probability priors from /home/schmill/mcl-core//config/default/cp_tables.mcl...
+82 tables loaded.
+loading response node costs from /home/schmill/mcl-core//config/default/response_costs.mcl...13 costs loaded.
+[1.03402,-0.0105617,0.283099]
+NGEEVIOLATION: UpperBound-0x0804f150
+supposed to check for re-entrant behavior.
+there are 0 frame(s) on hand.
+this eg is characterized by <0,0x11110000,0>
+no existing frames match incoming case.
+fringe linkage: < control discrete maintenance breakout-high >
+eval: solicitSuggestionResponse-0x08054278 p=0.5 cost=5
+select: solicitSuggestionResponse-0x08054278 v=0.1
+eval: relinquishControlResponse-0x08054310 p=0.5 cost=5
+eval: runSensorDiagnostic-0x080544f0 p=0.5 cost=1
+select: runSensorDiagnostic-0x080544f0 v=0.5
+eval: runEffectorDiagnostic-0x080545b0 p=0.5 cost=2
+eval: activateLearningResponse-0x080548c8 p=0.5 cost=3
+eval: adjustParametersResponse-0x08054990 p=0.5 cost=1
+eval: rebuildModelsResponse-0x08054a50 p=0.5 cost=3
+eval: revisitAssumptionsResponse-0x08054b18 p=0.5 cost=2
+eval: amendControllerResponse-0x08054bd8 p=0.5 cost=3
+eval: reviseExpectationsResponse-0x08055358 p=0.5 cost=7
+eval: algorithmSwapResponse-0x08055480 p=0.5 cost=11
+eval: changeHLCResponse-0x08055540 p=0.5 cost=6
+eval: tryAgainResponse-0x08055600 p=0.5 cost=1
+FH: 1 responses in vector.
+response[ref0x804f208] #1: MCL recommendation is to run sensor diagnostic
+
